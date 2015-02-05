@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>app点击色块 tap-highlight-color</title>
+<meta name="viewport" content="width=device-width maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+*{padding:0;margin:20px;color: #000;}
+a{
+	text-decoration: none;
+	padding: 12px;
+	background-color:#39a6df;
+	border-radius: 10px;
+	display: block;
+	text-align: center;
+}
+a:link,a:visited,a:hover,a:active{
+	color:#fff;    
+	text-decoration: none;
+}
+.no{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.hasRed{
+	-webkit-tap-highlight-color:rgba(255,0,0,1);
+}
+</style>
+</head>
+<body>
+	<p>默认<br><a href="javascript:void(0)">a标签</a></p>
+	<p>无色块<br><a href="javascript:void(0)" class="no">a标签</a></p>
+	<p>点击之后有红色块<br><a href="javascript:void(0)" class="hasRed">a标签</a></p>
+</body>
+</html>
