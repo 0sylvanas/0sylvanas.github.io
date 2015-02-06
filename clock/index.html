@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Clock</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://i3.dpfile.com/s/c/app/main/base-old.v10.css">
+    <base target="_blank">
+    </head>
+    <body>
+
+    <div id="clock"></div>
+    <script src="main.js"></script>
+    <script>
+        var clockDiv = document.getElementById("clock");
+        var clickObj = new Clock(clockDiv);
+        var intervalId = window.setInterval("clickObj.getCurrentDate()",1000);
+    </script>
+    <input type="button" onclick="window.clearInterval(intervalId)" value="停止" />
+    </body>
+</html>
