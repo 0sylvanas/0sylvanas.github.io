@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CSS3/jQuery Clock demo</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 20px auto 0 auto;
+            background: url(images/clockface.jpg);
+            list-style: none;
+        }
+        #sec, #min, #hour {
+            position: absolute;
+            width: 30px;
+            height: 600px;
+            top: 0px;
+            left: 285px;
+        }
+        #sec {
+            background: url(images/sechand.png);
+            z-index: 3;
+        }
+        #min {
+            background: url(images/minhand.png);
+            z-index: 2;
+        }
+        #hour {
+            background: url(images/hourhand.png);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+</div>
+    <ul id="clock">
+        <li id="sec"></li>
+        <li id="hour"></li>
+        <li id="min"></li>
+    </ul>
+    <script src="http://evt.dianping.com/midas/lib/js/jquery-1.8.3.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
