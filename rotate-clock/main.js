@@ -2,7 +2,7 @@
  * @Author: haoyang.li
  * @Date:   2015-03-03 12:05:41
  * @Last Modified by:   haoyang.li
- * @Last Modified time: 2015-03-03 15:06:31
+ * @Last Modified time: 2015-03-03 15:11:01
  */
 	setInterval(function() {
 		var seconds = new Date().getSeconds();
@@ -29,10 +29,8 @@
 		var mins = new Date().getMinutes();
 		var mdegree = mins * 6;
 		var mrotate = "rotate(" + mdegree + "deg)";
-
 		$("#min").css({
 			"-moz-transform": mrotate,
 			"-webkit-transform": mrotate
 		});
-
 	}, 1000);
