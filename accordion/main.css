@@ -1,0 +1,38 @@
+/* 
+* @Author: haoyang.li
+* @Date:   2015-03-04 17:38:03
+* @Last Modified by:   haoyang.li
+* @Last Modified time: 2015-03-04 18:10:00
+*/
+.accordion {
+    background: #333;
+    border: 1px solid #999;
+    padding: 0 1em 24px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.accordion .section {
+    border-bottom: 1px solid #ccc;
+    padding: 0 16px;
+    background: #fff;
+}
+
+.accordion h3 a {
+    display: block;
+    padding: 16px 0;
+}
+
+.accordion h3 + div {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in;
+}
+
+.accordion :target h3 + div {
+    height: 100px;
+}
+
+.accordion .section.large:target h3 + div {
+    overflow: auto;
+}
