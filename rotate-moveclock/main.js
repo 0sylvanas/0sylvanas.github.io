@@ -2,9 +2,8 @@
  * @Author: haoyang.li
  * @Date:   2015-03-04 14:26:27
  * @Last Modified by:   haoyang.li
- * @Last Modified time: 2015-03-04 17:16:40
+ * @Last Modified time: 2015-03-04 17:05:17
  */
-//转动动画
 function round() {
     $('.second')[0].style.transition = "600000s linear";
     $('.second')[0].style.transform = "rotate(3600000deg)";
