@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script>
+            alert("请看控制台，在chrome中显示的是ACBD||然而在IE中显示的是ACD，并没有执行window.onload事件");
+            console.log("A");
+            window.onload = function() {//
+                console.log("B");
+            }
+            console.log("C");
+        </script>
+    </head>
+    <body onload="console.log('D')">
+    </body>
+</html>
