@@ -2,6 +2,9 @@
     <head>
        <title>DeviceMotionEvent</title>
        <meta charset="UTF-8" />
+       <style>
+            .sty{font-size: 60px;color: #ff00ff;cursor: pointer;margin-top: 20px;}
+       </style>
     </head>
     <body>
         <p>x轴加速度：<span id="x">0</span>米每二次方秒</p>
@@ -17,6 +20,8 @@
         <p>扭转速度：<span id="gamma">0</span>度每秒</p>
         <hr />
         <p>上次收到通知的间隔：<span id="interval">0</span>毫秒</p>
+        <div class="J_start sty">开始</div>
+        <div class="J_cancel sty">暂停</div>
         <script type="text/javascript">
         function motionHandler(event) {
             document.getElementById("interval").innerHTML = event.interval;
@@ -55,12 +60,22 @@
                     last_z = z;
                 }
             }
-        if (window.DeviceMotionEvent) {
-          window.addEventListener("devicemotion", motionHandler, false);
-          window.addEventListener('devicemotion', deviceMotionHandler, false);
-        } else {
-          alert('不支持');
+        var Start = function() {
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', motionHandler, false);
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+            } else {
+                alert('不支持');
+            }
         }
+        var Cancel = function() {
+            window.removeEventListener('devicemotion', motionHandler, false);
+            window.removeEventListener('devicemotion', deviceMotionHandler, false);
+        }
+        var start = document.getElementsByClassName('J_start')[0];
+        start.addEventListener('click', Start, false);
+        var cancel = document.getElementsByClassName('J_cancel')[0];
+        cancel.addEventListener('click', Cancel, false);
         </script>
     </body>
 </html>
