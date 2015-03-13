@@ -4,35 +4,38 @@
         <meta charset="utf-8">
     </head>
     <body>
-    	<script>
-    	var SHAKE_THRESHOLD = 500;
-		var lastTime = 0;
-		var x, y, z, lastX, lastY, lastZ;
+        <script>
+        if (window.DeviceMotionEvent) {
+       window.addEventListener('devicemotion',deviceMotionHandler, false);
+    }
 
-		var shakeHandler = function (acceleration) {
+    var SHAKE_THRESHOLD = 800;
+    var last_update = 0;
+    var x, y, z, last_x, last_y, last_z;
+     
+    function deviceMotionHandler(eventData) {
+        var acceleration =eventData.accelerationIncludingGravity;
+        var curTime = new Date().getTime();
+    
+        if ((curTime - last_update)> 100) {
+     
+        var diffTime = curTime - last_update;
+        last_update = curTime;
 
-		    var curTime = new Date().getTime();
-		    var diffTime = curTime - lastTime;
+        x = acceleration.x;
+        y = acceleration.y;
+        z = acceleration.z;
 
-		    if (diffTime > 200) {
+        var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
 
-		        lastTime = curTime;
-
-		        x = acceleration.x;
-		        y = acceleration.y;
-		        z = acceleration.z;
-
-		        var speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000;
-
-		        if (speed > SHAKE_THRESHOLD) {
-		            alert("shook!");
-		        }
-
-		        lastX = x;
-		        lastY = y;
-		        lastZ = z;
-		    }
-};
-    	</script>
+        if (speed > SHAKE_THRESHOLD) {
+            alert("shake");
+        }
+        last_x = x;
+        last_y = y;
+        last_z = z;
+      }
+    }
+        </script>
     </body>
 </html>
