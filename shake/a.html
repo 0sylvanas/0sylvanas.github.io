@@ -37,18 +37,18 @@
                     last_z = z;
                 }
             }
-            function orientationHandler(event) {
-                document.getElementById("alpha").innerHTML = event.alpha;
-                document.getElementById("beta").innerHTML = event.beta;
-                document.getElementById("gamma").innerHTML = event.gamma;
-                document.getElementById("heading").innerHTML = event.webkitCompassHeading;
-                document.getElementById("accuracy").innerHTML = event.webkitCompassAccuracy;
-            }
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", orientationHandler, false);
-            } else {
-                alert("不支持2");
-            }
+            // function orientationHandler(event) {
+            //     document.getElementById("alpha").innerHTML = event.alpha;
+            //     document.getElementById("beta").innerHTML = event.beta;
+            //     document.getElementById("gamma").innerHTML = event.gamma;
+            //     document.getElementById("heading").innerHTML = event.webkitCompassHeading;
+            //     document.getElementById("accuracy").innerHTML = event.webkitCompassAccuracy;
+            // }
+            // if (window.DeviceOrientationEvent) {
+            //     window.addEventListener("deviceorientation", orientationHandler, false);
+            // } else {
+            //     alert("不支持2");
+            // }
         </script>
     </body>
 </html>
