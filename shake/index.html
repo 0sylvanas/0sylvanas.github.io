@@ -4,9 +4,15 @@
        <meta charset="UTF-8" />
        <style>
             .sty{font-size: 60px;color: #ff00ff;cursor: pointer;margin-top: 20px;}
+            html{font-size: 12px;}
+            @media screen and (min-device-width: 350px) {
+                html {
+                    font-size: 14px;
+               }
+            }
        </style>
     </head>
-    <body>
+    <body style="font-size: 2rem;">
         <p>x轴加速度：<span id="x">0</span>米每二次方秒</p>
         <p>y轴加速度：<span id="y">0</span>米每二次方秒</p>
         <p>z轴加速度：<span id="z">0</span>米每二次方秒</p>
