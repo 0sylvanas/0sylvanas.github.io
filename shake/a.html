@@ -23,7 +23,7 @@
                     x = acceleration.x;
                     y = acceleration.y;
                     z = acceleration.z;
-                    var sped = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
                     if(speed > SHAKE_THRESHOLD) {
                         alert("shake");
                     }
