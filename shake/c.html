@@ -8,10 +8,9 @@
     	if (window.DeviceMotionEvent) {
 　　　　// 移动浏览器支持运动传感事件
 　　　　window.addEventListener('devicemotion', deviceMotionHandler, false);
-　　　　$("#yaoyiyaoyes").show();
 　　} else{
 　　　　// 移动浏览器不支持运动传感事件
-　　　　$("#yaoyiyaono").show();
+		alert("不支持");
 　　} 
     		// 首先，定义一个摇动的阀值
 var SHAKE_THRESHOLD = 3000;
