@@ -33,12 +33,38 @@
 			document.getElementById("beta").innerHTML = rotationRate.beta;
 			document.getElementById("gamma").innerHTML = rotationRate.gamma;
 		}
-		
 		if (window.DeviceMotionEvent) {
 		  window.addEventListener("devicemotion", motionHandler, false);
 		} else {
-		  document.body.innerHTML = "What user agent u r using???";
+		  document.body.innerHTML = "不支持";
 		}
+
+		if(window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', deviceMotionHandler, false);
+            }else{
+                alert('不支持1');
+            }
+            var SHAKE_THRESHOLD = 800,
+                last_update = 0,
+                x, y, z, last_x, last_y, last_z;
+            function deviceMotionHandler(eventData) {
+                var acceleration = eventData.accelerationIncludingGravity;
+                var curTime = new Date().getTime();
+                if( (curTime - last_update) > 100) {
+                    var diffTime = curTime - last_update;
+                    last_update = curTime;
+                    x = acceleration.x;
+                    y = acceleration.y;
+                    z = acceleration.z;
+                    var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+                    if(speed > SHAKE_THRESHOLD) {
+                        alert("shake");
+                    }
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
+                }
+            }
    	 	</script>
 	</body>
 </html>
