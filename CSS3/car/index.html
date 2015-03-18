@@ -4,21 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <style>
+            body{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
             *{margin: 0; padding: 0;width: 100%;overflow: hidden;}
             .ebd{width: 100%;height: 600px;background-color: #f00;}
             .car{width: 80%;position: absolute;top: 30%;left: 100%;}
             img{width: 100%;}
             .move{transition: 6.2s linear;left: -100%;}
+            .J_click{font-size: 60px;text-align: center;color: #fff;}
         </style>
     </head>
     <body>
-        <div class="ebd"></div>
+        <div class="ebd">
+            <div class="J_click">点我</div>
+        </div>
             <div class="car">
                 <img src="car.jpg">
         </div>
         <script>
             var carmove = document.querySelector('.car');
-            document.querySelector('.ebd').addEventListener('click', function() {
+            document.querySelector('.J_click').addEventListener('click', function() {
                 carmove.className = 'car move';
             }, false)
         </script>
