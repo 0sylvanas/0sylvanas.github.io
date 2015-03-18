@@ -5,30 +5,79 @@
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <style>
             body{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
-            *{margin: 0; padding: 0;width: 100%;overflow: hidden;}
+            *{margin: 0; padding: 0;width: 100%;overflow: hidden;text-align: center;}
             img{width: 100%;}
-            .ebd{width: 100%;height: 600px;background-color: #f00;}
+            .ebd{width: 100%;height: 100%;background-color: #f00;}
             .car{width: 60%;position: absolute;top: 30%;left: 100%;}
             @-webkit-keyframes lmove{
                 0%{left: :100%;}
                 100%{left: -100%;}
             }
             .move{-webkit-transform: translate3d(0, 0, 0);-webkit-animation: lmove 6.2s;}
-            .J_click{font-size: 60px;text-align: center;color: #fff;}
+            .J_click{font-size: 50px;color: #fff;}
+            .J_stop{font-size: 30px;color: #ff0;}
+            .J_reload{font-size: 30px;color: #1EFF00}
+            .bgc{position: absolute;top: 27%;left: 22%;width: 50%;height: 20%;border: 10px solid #000;}
         </style>
     </head>
     <body>
         <div class="ebd">
             <div class="J_click">点我</div>
+            <div class="J_stop">抓取</div>
+            <div class="bgc"></div>
+            <div class="J_reload">点我刷新</div>
         </div>
             <div class="car">
                 <img src="car.jpg">
         </div>
         <script>
-            var carmove = document.querySelector('.car');
+            var carmove = document.querySelector('.car'),
+                clientWidth = document.body.offsetWidth,
+                count = 1,
+                SWITCH = true;
+            document.querySelector('.J_reload').addEventListener('click', function() {
+                location.reload();
+            }, false);
+            var stopmove = function() {
+                if(SWITCH){
+                    var stopmsg = parseInt(document.defaultView.getComputedStyle(carmove)['left']);
+                    console.log(stopmsg);
+                    if( stopmsg > (clientWidth*0.1) && stopmsg < (clientWidth*0.25) || count === 3 || count > 3 ) {
+                        if( count === 3 || count > 3){
+                            carmove.className = 'car';
+                            carmove.style.left = stopmsg + 'px';
+                            alert("很抱歉,但你的确手残");
+                            SWITCH = false;
+                        }else{
+                            carmove.className = 'car';
+                            carmove.style.left = stopmsg + 'px';
+                            alert("恭喜你抓取成功，但并没有奖励");
+                            SWITCH = false;
+                        }
+                    }
+                    count++;
+                }else{
+                    alert('停！X2');
+                }
+            };
             document.querySelector('.J_click').addEventListener('click', function() {
-                carmove.className = 'car move';
-            }, false)
+                if(SWITCH) {
+                    document.querySelector('.J_stop').addEventListener('click', stopmove, false);
+                    carmove.style.left = "100%";
+                    carmove.className = 'car move';
+                }else{
+                    alert("停！");
+                }
+            }, false);
+            var end = setInterval( function() {
+                // console.log(document.defaultView.getComputedStyle(carmove)['left']);
+                if(parseInt(document.defaultView.getComputedStyle(carmove)['left']) < -(clientWidth*0.5) ) {
+                    SWITCH = false;
+                    clearInterval(end);
+                    alert("凯迪拉克飞走了");
+                }
+            },300);
+            
         </script>
     </body>
 </html>
