@@ -36,7 +36,7 @@
         </div>
             <div class="car">
                 <img src="car.jpg">
-        </div>
+            </div>
         <script>
             var carmove = document.querySelector('.car'),
                 clientWidth = parseInt(document.defaultView.getComputedStyle(document.body)['width']);
@@ -47,7 +47,7 @@
             setTimeout( function() {
                 // console.log(document.defaultView.getComputedStyle(carmove)['height']);
                 viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-            },200)
+            },1000)
             document.querySelector('.J_reload').addEventListener('click', function() {
                 location.reload();
             }, false);
