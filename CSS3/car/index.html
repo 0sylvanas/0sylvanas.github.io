@@ -35,7 +35,7 @@
             <div class="J_reload">点我刷新</div>
         </div>
             <div class="car">
-                <img src="car.jpg">
+                <img src="car.jpg" class="J_img">
             </div>
         <script>
             var carmove = document.querySelector('.car'),
@@ -43,11 +43,25 @@
                 count = 1,
                 SWITCH = true;
             var viewArea = document.querySelector('.bgc');
-            viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-            setTimeout( function() {
-                // console.log(document.defaultView.getComputedStyle(carmove)['height']);
+            // var _img = new Image();
+            // _img.src = 'car.jpg';
+            // _img.onreadystatechange = function() {
+            //     console.log(_img.readyState);
+            //     if(_img.readyState == 4) {
+            //         console.log(1);
+            //         viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+            //         viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+            //         document.querySelector('.car').innerHTML = '<img src=' + _img.src + '/>';
+            //     } else{
+            //         console.log(2);
+            //     }
+            // }
+            // _img.onreadystatechange();
+            document.querySelector('.J_img').onload = function() {
+                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
                 viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-            },1000)
+                console.log(1);
+            }
             document.querySelector('.J_reload').addEventListener('click', function() {
                 location.reload();
             }, false);
