@@ -17,10 +17,6 @@
                 0%{left: :100%;}
                 100%{left: -100%;}
             }
-            @-moz-keyframes lmove{
-                0%{left: :100%;}
-                100%{left: -100%;}
-            }
             .move{-webkit-transform: translate3d(0, 0, 0);-webkit-animation: lmove 6.2s;}
             .J_click{font-size: 30px;color: #fff;float: left;margin-left: 20px;}
             .J_stop{font-size: 30px;color: #ff0;float: left;margin-left: 20px;}
@@ -43,7 +39,7 @@
         </div>
         <script>
             var carmove = document.querySelector('.car'),
-                clientWidth = document.body.offsetWidth,
+                clientWidth = parseInt(document.defaultView.getComputedStyle(document.body)['width']);
                 count = 1,
                 SWITCH = true;
             var viewArea = document.querySelector('.bgc');
