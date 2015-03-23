@@ -49,16 +49,20 @@
             </ul>
         </div>
         <script>
-            document.querySelector('.type1').innerHTML = document.body.offsetWidth;
-            document.querySelector('.type2').innerHTML = document.body.offsetHeight;
-            document.querySelector('.type3').innerHTML = window.innerWidth;
-            document.querySelector('.type4').innerHTML = window.innerHeight;
-            document.querySelector('.type5').innerHTML = document.defaultView.getComputedStyle(document.body)['width'];
-            document.querySelector('.type6').innerHTML = document.defaultView.getComputedStyle(document.body)['height'];
-            document.querySelector('.type7').innerHTML = document.body.clientWidth;
-            document.querySelector('.type8').innerHTML = document.body.clientHeight;
-            document.querySelector('.type9').innerHTML = document.body.scrollWidth;
-            document.querySelector('.type10').innerHTML = document.body.scrollHeight;
+            var getParameters = function() {
+                document.querySelector('.type1').innerHTML = document.body.offsetWidth;
+                document.querySelector('.type2').innerHTML = document.body.offsetHeight;
+                document.querySelector('.type3').innerHTML = window.innerWidth;
+                document.querySelector('.type4').innerHTML = window.innerHeight;
+                document.querySelector('.type5').innerHTML = document.defaultView.getComputedStyle(document.body)['width'];
+                document.querySelector('.type6').innerHTML = document.defaultView.getComputedStyle(document.body)['height'];
+                document.querySelector('.type7').innerHTML = document.body.clientWidth;
+                document.querySelector('.type8').innerHTML = document.body.clientHeight;
+                document.querySelector('.type9').innerHTML = document.body.scrollWidth;
+                document.querySelector('.type10').innerHTML = document.body.scrollHeight;
+            }
+            getParameters();
+            addEventListener('resize', getParameters, false);
         </script>
     </body>
 </html>
