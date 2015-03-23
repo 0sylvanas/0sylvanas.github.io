@@ -43,16 +43,15 @@
             }
             addEventListener('resize', function() {
                 if(window.orientation) {
-                    setTimeout(function() {
-                        viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                        viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-                    }, 500)
+                    viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                    viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
                 }
             },false)
             var carmove = document.querySelector('.car'),
-                clientWidth = parseInt(document.defaultView.getComputedStyle(document.body)['width']),
+                clientWidth = window.innerWidth,
                 count = 1,
                 SWITCH = true;
+            alert(clientWidth);
             var viewArea = document.querySelector('.bgc');
             // var _img = new Image();
             // _img.src = 'car.jpg';
