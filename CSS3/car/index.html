@@ -45,13 +45,13 @@
                 if(window.orientation) {
                     viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
                     viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                    alert("width:" + document.defaultView.getComputedStyle(carmove)['width'] + "height" + document.defaultView.getComputedStyle(carmove)['height']);
                 }
             },false)
             var carmove = document.querySelector('.car'),
                 clientWidth = window.innerWidth,
                 count = 1,
                 SWITCH = true;
-            alert(clientWidth);
             var viewArea = document.querySelector('.bgc');
             // var _img = new Image();
             // _img.src = 'car.jpg';
