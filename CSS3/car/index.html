@@ -42,13 +42,9 @@
                 viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
             }
             addEventListener('resize', function() {
-                alert(window.orientation);
-                if(window.orientation) {
-                    alert(window.orientation);
-                    viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                    viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-                    alert("width:" + document.defaultView.getComputedStyle(carmove)['width'] + "height" + document.defaultView.getComputedStyle(carmove)['height']);
-                }
+                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                alert("width:" + document.defaultView.getComputedStyle(carmove)['width'] + "height" + document.defaultView.getComputedStyle(carmove)['height']);
             },false)
             var carmove = document.querySelector('.car'),
                 clientWidth = window.innerWidth,
