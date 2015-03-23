@@ -34,20 +34,14 @@
                 <img src="car.jpg" class="J_img">
             </div>
         <script>
+            document.querySelector('.J_img').onload = function() {
+                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+            }
             addEventListener('resize', function() {
-                switch(window.orientation) {
-                    case 0:
-                    alert("0,width:" + screen.width + "height" + screen.height);
-                    break;
-                    case 90:
-                    alert("左旋-90,width:" + screen.width + "height" + screen.height);
-                    break;
-                    case -90:
-                    alert("右旋90,width:" + screen.width + "height" + screen.height);
-                    break;
-                    case 180:
-                    alert("风景模式180,width:" + screen.width + "height" + screen.height);
-                    break;
+                if(window.orientation) {
+                    viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                    viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
                 }
             },false)
             var carmove = document.querySelector('.car'),
@@ -69,10 +63,7 @@
             //     }
             // }
             // _img.onreadystatechange();
-            document.querySelector('.J_img').onload = function() {
-                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-            }
+            
             document.querySelector('.J_reload').addEventListener('click', function() {
                 location.reload();
             }, false);
