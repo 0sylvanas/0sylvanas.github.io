@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta http-equiv="expires" content="0"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache">
         <style>
             body{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
             *{margin: 0; padding: 0;overflow: hidden;text-align: center;}
@@ -41,8 +43,10 @@
             }
             addEventListener('resize', function() {
                 if(window.orientation) {
-                    viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                    viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                    setTimeout(function() {
+                        viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                        viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                    }, 500)
                 }
             },false)
             var carmove = document.querySelector('.car'),
