@@ -72,6 +72,7 @@
             var stopmove = function() {
                 if(SWITCH){
                     var stopmsg = parseInt(document.defaultView.getComputedStyle(carmove)['left']);
+                    alert(stopmsg);
                     console.log(stopmsg);
                     if( stopmsg > (clientWidth*0.1) && stopmsg < (clientWidth*0.25) || count === 3 || count > 3 ) {
                         if( count === 3 || count > 3){
