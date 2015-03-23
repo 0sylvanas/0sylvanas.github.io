@@ -16,7 +16,7 @@
                 0%{left: :100%;}
                 100%{left: -100%;}
             }
-            .move{-webkit-animation: lmove 6.2s;}
+            .move{-webkit-transform: translateZ(0);-webkit-backface-visibility: hidden;-webkit-perspective: 1000;-webkit-animation: lmove 6.2s;}
             .J_click{font-size: 30px;color: #fff;float: left;margin-left: 20px;}
             .J_stop{font-size: 30px;color: #ff0;float: left;margin-left: 20px;}
             .J_reload{font-size: 30px;color: #1EFF00;float: left;margin-left: 20px;}
@@ -55,7 +55,7 @@
             document.querySelector('.J_reload').addEventListener('click', function() {
                 location.reload();
             }, false);
-            
+
             var stopmove = function() {
                 if(SWITCH){
                     var stopmsg = carmove.offsetLeft;
