@@ -37,38 +37,25 @@
                 <img src="car.jpg" class="J_img">
             </div>
         <script>
-            document.querySelector('.J_img').onload = function() {
-                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-            }
-            addEventListener('resize', function() {
-                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-                alert("width:" + document.defaultView.getComputedStyle(carmove)['width'] + "height" + document.defaultView.getComputedStyle(carmove)['height']);
-            },false)
             var carmove = document.querySelector('.car'),
                 clientWidth = window.innerWidth,
                 count = 1,
                 SWITCH = true;
             var viewArea = document.querySelector('.bgc');
-            // var _img = new Image();
-            // _img.src = 'car.jpg';
-            // _img.onreadystatechange = function() {
-            //     console.log(_img.readyState);
-            //     if(_img.readyState == 4) {
-            //         console.log(1);
-            //         viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
-            //         viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
-            //         document.querySelector('.car').innerHTML = '<img src=' + _img.src + '/>';
-            //     } else{
-            //         console.log(2);
-            //     }
-            // }
-            // _img.onreadystatechange();
-            
+
+            document.querySelector('.J_img').onload = function() {
+                viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                addEventListener('resize', function() {
+                    viewArea.style.width = document.defaultView.getComputedStyle(carmove)['width'];
+                    viewArea.style.height = document.defaultView.getComputedStyle(carmove)['height'];
+                },false)
+            }
+
             document.querySelector('.J_reload').addEventListener('click', function() {
                 location.reload();
             }, false);
+            
             var stopmove = function() {
                 if(SWITCH){
                     var stopmsg = carmove.offsetLeft;
@@ -107,7 +94,6 @@
                     alert("凯迪拉克飞走了");
                 }
             },300);
-            
         </script>
     </body>
 </html>
