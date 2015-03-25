@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>lee</title>
+    <meta name="Keywords" content=""/>
+    <meta name="Description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="apple-mobile-web-app-title" content="大众点评">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <img src="css/img/bg1.jpg">
+    <img src="css/img/a1.jpg">
+    <img src="css/img/a2.jpg">
+    <img src="css/img/a3.jpg">
+    <img src="css/img/bg5.jpg">
+
+    <script src="http://evt.dianping.com/midas/lib/js/zepto.1.0.min.js"></script>
+    <script src="http://evt.dianping.com/midas/lib/alert/template-app/appPop.0.0.9.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        var activityId = 1;//打点活动ID
+    </script>
+    <!--分享-->
+    <script src="http://evt.dianping.com/midas/lib/js/dpShare0.0.1.min.js"></script>
+    <script>
+        window.lastIndexTitle = "";//分享标题
+        window.lastIndexDesc = "";//分享内容
+        window.lastImg = "";//分享出去的图片，要放在can上
+        window.share_url = location.origin + location.pathname +"?platform=notindp";
+        //这里调用可以重新初始化分享的内容
+        window.shareDefault = {
+            title: window.lastIndexTitle,
+            desc: window.lastIndexDesc,
+            link: window.share_url,
+            image: window.lastImg //需要放在cdn
+        };
+        initConfit(shareDefault);  //分享参数初始化
+        rightShare(); //点评右上角的分享初始化
+        // share_Wx_Dp_Attach(shareApp); //分享点击按钮执行初始化
+    </script>
+    <script type="text/javascript" src="http://evt.dianping.com/midas/lib/js/stts.js"></script>
+    <script>
+        Stts.init({
+            activityId: activityId
+        });
+    </script>
+</body>
+</html>
