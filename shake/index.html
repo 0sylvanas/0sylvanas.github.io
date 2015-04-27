@@ -69,7 +69,7 @@
         var Start = function() {
             if (window.DeviceMotionEvent) {
                 window.addEventListener('devicemotion', motionHandler, false);
-                window.addEventListener('devicemotion', deviceMotionHandler, false);
+                // window.addEventListener('devicemotion', deviceMotionHandler, false);
             } else {
                 alert('不支持');
             }
