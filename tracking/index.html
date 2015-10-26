@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>tracking</title>
+    <style>
+        .rect {border: 2px solid #a64ceb;left: -1000px;position: absolute;top: -1000px;z-index: 3;}
+        #img {position: relative;top: -500px;width: 500px;z-index: 2;}
+        #js-file-input {position: relative;width: 600px;height: 600px;background-color: #f00;opacity: 0;z-index: 5;}
+        .text-layer {position: relative;top: -300px;left: 100px;font-size: 30px;color: #000;z-index: 1;}
+    </style>
+</head>
+
+<body>
+    <input type="file" id="js-file-input">
+    <div class="text-layer">请选择图片</div>
+    <div class="imgContainer">
+        <img id="img">
+    </div>
+    <script src="js/tracking-min.js"></script>
+    <script src="js/data/face-min.js"></script>
+    <script src="js/data/eye-min.js"></script>
+    <script src="js/data/mouth-min.js"></script>
+    <script>
+        var img = document.getElementById('img');
+
+        var drawFunc = function() {
+            // var tracker = new tracking.ObjectTracker(['face', 'eye', 'mouth']);
+            var tracker = new tracking.ObjectTracker(['face']);
+            tracker.setStepSize(1.7);
+            tracking.track('#img', tracker);
+
+            function draw(x, y, w, h) {
+                var rect = document.createElement('div');
+                document.querySelector('.imgContainer').appendChild(rect);
+                rect.classList.add('rect');
+                rect.style.width = w + 'px';
+                rect.style.height = h + 'px';
+                rect.style.left = (img.offsetLeft + x) + 'px';
+                rect.style.top = (img.offsetTop + y) + 'px';
+            };
+            var isface;
+            tracker.on('track', function(event) {
+                event.data.forEach(function(rect) {
+                    draw(rect.x, rect.y, rect.width, rect.height);
+                    isface = true;
+                });
+                if (!isface) {
+                    alert("这不是一张脸~")
+                }
+            });
+        };
+
+        document.getElementById('js-file-input').onchange = function(e) {
+            var _file = e.target.files[0],
+                reg = new RegExp('\\w+\\.(jpg|jpeg|png).*');
+            if (_file) {
+                if (reg.test(_file.name)) {
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        img.src = this.result;
+                        if (img.complete) {
+                            drawFunc();
+                        } else {
+                            img.onload = drawFunc;
+                        }
+                    };
+                    reader.readAsDataURL(_file);
+                } else {
+                    alert("请上传正常的jpg||png图片~")
+                }
+            } else {
+                alert("请上传正常的jpg||png图片~")
+            }
+        }
+    </script>
+</body>
+
+</html>
