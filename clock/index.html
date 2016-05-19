@@ -1,58 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Clock</title>
+
+<head>
+    <title>Clock</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://i3.dpfile.com/s/c/app/main/base-old.v10.css">
-    </head>
-    <body style="text-align:center;background-color: #fff5d1;">
+</head>
+
+<body style="text-align:center;background-color: #fff5d1;">
     <div id="clock"></div>
     <input type="button" onclick="window.clearInterval(intervalId)" value="停止" />
-    <script src="http://evt.dianping.com/midas/lib/js/zepto.1.0.min.js"></script>
-    <script>
-        $.ajax({
-            dataType: 'jsonp',
-            url:'http://event.dianping.com/activityvip/customized/checkLogin',
-            success: function(_data) {
-                if (200 == _data.code) {
-                    alert(1);
-                } else {
-                    alert(_data.code);
-                }
-            }, error: function() {
-                alert("error");
-            }
-        })
-    </script>
+    <script src="zepto.min.js"></script>
     <script>
         var clockDiv = document.getElementById("clock");
         var clickObj = new Clock(clockDiv);
-        var intervalId = window.setInterval("clickObj.getCurrentDate()",1000);
-    /**
-     * [Clock]
-     * @param  clockDiv [传入的div对象]
-     */
-    function Clock(clockDiv){
-        this.clockDiv = clockDiv;
-        this.getCurrentDate = function(){
-        //获取当前日期
-        var currDate = new Date();
-        //分别获取 年、月、日、时、分、秒
-        var currDateTime = currDate.getFullYear();
-        currDateTime += "-";
-        currDateTime += (currDate.getMonth() + 1);
-        currDateTime += "-";
-        currDateTime += currDate.getDate();
-        currDateTime += " ";
-        currDateTime += currDate.getHours();
-        currDateTime += ":";
-        currDateTime += currDate.getMinutes();
-        currDateTime += ":";
-        currDateTime += currDate.getSeconds();
-        //将当前时间赋值到div对象中
-        this.clockDiv.innerHTML = currDateTime;
-    };
-}
+        var intervalId = window.setInterval("clickObj.getCurrentDate()", 1000);
+        /**
+         * [Clock]
+         * @param  clockDiv [传入的div对象]
+         */
+        function Clock(clockDiv) {
+            this.clockDiv = clockDiv;
+            this.getCurrentDate = function() {
+                //获取当前日期
+                var currDate = new Date();
+                //分别获取 年、月、日、时、分、秒
+                var currDateTime = currDate.getFullYear();
+                currDateTime += "-";
+                currDateTime += (currDate.getMonth() + 1);
+                currDateTime += "-";
+                currDateTime += currDate.getDate();
+                currDateTime += " ";
+                currDateTime += currDate.getHours();
+                currDateTime += ":";
+                currDateTime += currDate.getMinutes();
+                currDateTime += ":";
+                currDateTime += currDate.getSeconds();
+                //将当前时间赋值到div对象中
+                this.clockDiv.innerHTML = currDateTime;
+            };
+        }
     </script>
-    </body>
+</body>
+
 </html>

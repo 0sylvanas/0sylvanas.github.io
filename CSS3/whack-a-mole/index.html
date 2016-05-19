@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>whack-a-mole</title>
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- <div class="absolute time-minus js-time-minus">TIME-2</div> -->
+    <section class="count-time"><span class="t-cd">3</span></section>
+    <div class="relative">
+        <img src="css/img/bg.jpg">
+        <div class="ani-show">
+            <img src="css/img/game-title.png" class="absolute game-title">
+            <img src="css/img/head.png" class="absolute head">
+            <img src="css/img/body.png" class="absolute body">
+            <img src="css/img/strawberry.png" class="absolute strawberry">
+        </div>
+        <div class="absolute game js-game">
+            <img src="css/img/image-right.png" class="absolute js-image animate-1 position-1" data-hattype="0">
+        </div>
+        <div class="absolute time-circle">
+            <img src="css/img/time-circle.png">
+            <div class="absolute time js-time">30</div>
+        </div>
+        <div class="absolute hat js-hat">
+            <img src="css/img/black-hat.png">
+            <img src="css/img/black-hat.png">
+            <img src="css/img/black-hat.png">
+            <img src="css/img/black-hat.png">
+            <img src="css/img/black-hat.png">
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        function onBridgeReady() {
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+        if (typeof WeixinJSBridge == "undefined") {
+            if (document.addEventListener) {
+                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            } else if (document.attachEvent) {
+                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        } else {
+            onBridgeReady();
+        }
+    </script>
+</body>
+
+</html>
